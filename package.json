@@ -1,17 +1,19 @@
 {
-  "name": "efs_vue",
+  "name": "efs_vuejs",
   "version": "1.0.0",
-  "description": "UI for EFS portolio project",
-  "author": "instructor",
+  "description": "web front end",
+  "author": "groyce <groyce@unomaha.edu>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
     "build": "node build/build.js"
   },
+
   "dependencies": {
     "axios": "^0.19.2",
+    "express": "^4.17.1",
     "sweetalert2": "^8.19.0",
+    "vee-validate": "^2.2.11",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.0.1",
