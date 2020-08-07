@@ -38,37 +38,53 @@
        </v-flex>
        </v-layout>
       <br/>
-      <v-container fluid grid-list-md fill-height>
+      <v-container fluid grid-list-md fill-height >
       <v-layout column>
-        <v-flex md6>
-      <v-data-table
-        :headers="headers"
-        :items="customers"
-        hide-actions
-        class="elevation-1"
-        fixed
-        style="max-height: 300px; overflow-y: auto"
-      >
+        <div style="width: 100%; display: table;">
+                <div style="display: table-row">
+                    <div style="width: 600px; display: table-cell;"> <b>Customer Number </b></div>
+                    <div style="width: 600px; display: table-cell;"> <b>Name</b> </div>
+                    <div style="width: 600px; display: table-cell;"> <b> Address </b></div>
+                    <div style="width: 600px; display: table-cell;"> <b>City</b> </div>
+                    <div style="width: 600px; display: table-cell;"> <b>State</b> </div>
+                    <div style="width: 600px; display: table-cell;"> <b>Zipcode</b> </div>
+                    <div style="width: 600px; display: table-cell;"> <b>Email </b></div>
+                    <div style="width: 600px; display: table-cell;"> <b>Phone </b></div>
+                    
+                </div>
+              </div>
+        <v-flex md6 v-for="i in customers" :key="i.text">
+          <v-card flat class ="text-xs-center ma-3">
+            <v-card-text>
 
-        <template slot="items" slot-scope="props" >
-          <td>{{ props.item.cust_number }}</td>
-          <td>{{ props.item.name }}</td>
-          <td nowrap="true">{{ props.item.address }}</td>
-          <td nowrap="true">{{ props.item.city }}</td>
-          <td nowrap="true">{{ props.item.state }}</td>
-          <td nowrap="true">{{ props.item.zipcode }}</td>
-          <td nowrap="true">{{ props.item.email }}</td>
-          <td nowrap="true">{{ props.item.cell_phone }}</td>
-          <td nowrap="true">
-            <v-icon @click="updateCustomer(props.item)">edit</v-icon>
-          </td>
-          <td nowrap="true">
-            <v-icon @click="deleteCustomer(props.item)">delete</v-icon>
-          </td>
 
-        </template>
+             
+              <div style="width: 100%; display: table;">
+                <div style="display: table-row">
+                    <div style="width: 600px; display: table-cell;"> {{i.cust_number }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.name }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.address }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.city }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.state }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.zipcode }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.email }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.cell_phone }} </div>
+                    <div style="width: 600px; display: table-cell;"><v-icon @click="updateCustomer(i)">edit</v-icon></div>
+                    <div style="width: 600px; display: table-cell;"><v-icon @click="deleteCustomer(i)">delete</v-icon></div>
 
-      </v-data-table>
+
+                </div>
+              </div>
+
+              
+
+            </v-card-text>
+            
+            
+
+          </v-card>  
+              
+
         </v-flex>
       </v-layout>
       </v-container>

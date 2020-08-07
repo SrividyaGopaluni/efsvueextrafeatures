@@ -1,10 +1,12 @@
 <template>
 
+  
+
   <v-app>
-    <v-toolbar class="blue">
-      <v-toolbar-title>Eagle Finance Service</v-toolbar-title>
-      <v-toolbar-items>
-        <v-btn flat dark @click="goHome">Home</v-btn>
+    <v-toolbar class="black ">
+      <v-toolbar-title class="white--text" >Eagle Finance Service</v-toolbar-title>
+      <v-toolbar-items  >
+        <v-btn flat dark @click="goHome" >Home</v-btn>
         <v-btn flat dark @click="viewCustomers">Customers</v-btn>
          <v-btn flat dark @click="viewStocks">Stocks</v-btn>
          <v-btn flat dark @click="viewInvestments">Investments</v-btn>
@@ -12,11 +14,13 @@
                @click="login">Log in
         </v-btn>
         <v-btn flat dark v-if="authenticated"
-               @click="logout">Log Out
+               @click="logout" >Log Out
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>
+
+
 
       <router-view/>
     </v-content>
@@ -32,7 +36,11 @@
     name: 'App',
     data: () => ({
       authenticated: false,
+      
+
     }),
+
+    
 
     mounted() {
         apiService.getCustomerList().then(response => {

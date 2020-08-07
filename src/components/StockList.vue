@@ -40,34 +40,51 @@
       <br/>
       <v-container fluid grid-list-md fill-height>
       <v-layout column>
-        <v-flex md6>
-      <v-data-table
-        :headers="headers"
-        :items="stocks"
-        hide-actions
-        class="elevation-1"
-        fixed
-        style="max-height: 300px; overflow-y: auto"
-      >
+        <div style="width: 100%; display: table;">
+                <div style="display: table-row">
+                    <div style="width: 600px; display: table-cell;"> <b>Customer </b></div>
+                    <div style="width: 600px; display: table-cell;"> <b>Symbol</b> </div>
+                    <div style="width: 600px; display: table-cell;"> <b> Name </b></div>
+                    <div style="width: 600px; display: table-cell;"> <b>Shares</b> </div>
+                    <div style="width: 600px; display: table-cell;"> <b>Purchase Price</b> </div>
+                    <div style="width: 600px; display: table-cell;"> <b>Purchase Date</b> </div>
+                    
+                    
+                    
+                </div>
+              </div>
+       <v-flex md6 v-for="i in stocks" :key="i.text">
+          <v-card flat class ="text-xs-center ma-3">
+            <v-card-text>
 
-        <template slot="items" slot-scope="props" >
-          <td>{{ props.item.cust_number }}</td>
-          <td nowrap="true">{{ props.item.customer }}</td>
-          <td nowrap="true">{{ props.item.symbol }}</td>
-          <td nowrap="true">{{ props.item.name }}</td>
-          <td nowrap="true">{{ props.item.shares }}</td>
-          <td nowrap="true">{{ props.item.purchase_price }}</td>
-          <td nowrap="true">{{ props.item.purchase_date }}</td>
-          <td nowrap="true">
-            <v-icon @click="updateStock(props.item)">edit</v-icon>
-          </td>
-          <td nowrap="true">
-            <v-icon @click="deleteStock(props.item)">delete</v-icon>
-          </td>
 
-        </template>
+             
+              <div style="width: 100%; display: table;">
+                <div style="display: table-row">
+                    
+                    <div style="width: 600px; display: table-cell;"> {{i.customer }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.symbol }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.name }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.shares }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.purchase_price }} </div>
+                    <div style="width: 600px; display: table-cell;">  {{i.purchase_date }} </div>
+                    
+                    <div style="width: 600px; display: table-cell;"><v-icon @click="updateStock(i)">edit</v-icon></div>
+                    <div style="width: 600px; display: table-cell;"><v-icon @click="deleteStock(i)">delete</v-icon></div>
 
-      </v-data-table>
+
+                </div>
+              </div>
+
+              
+
+            </v-card-text>
+            
+            
+
+          </v-card>  
+              
+
         </v-flex>
       </v-layout>
       </v-container>
