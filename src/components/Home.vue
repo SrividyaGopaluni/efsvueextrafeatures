@@ -1,4 +1,4 @@
-import sampleImage from  '../assets/images/customer.jpg'
+
 
 
 <template>
